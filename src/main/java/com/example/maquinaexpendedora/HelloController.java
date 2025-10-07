@@ -84,88 +84,88 @@ public class HelloController {
         imgProducto4.setImage(new Image(getClass().getResourceAsStream("/imagenes/libreta.png")));
         imgProducto5.setImage(new Image(getClass().getResourceAsStream("/imagenes/tipex.png")));
         imgProducto6.setImage(new Image(getClass().getResourceAsStream("/imagenes/lapiz.png")));
+        actualizarEstadoBotones();
+    }
+
+    private void seleccionarProducto(int indice, Label lblNombre) {
+        productoSeleccionado = indice;
+        importeTotal = precios[indice];
+        labelImporte.setText(String.format("Total: %.2f €", importeTotal));
+        mensajeLabel.setText("Producto seleccionado: " + lblNombre.getText());
+        actualizarEstadoBotones();
     }
 
     @FXML
     public void seleccionarProducto1(ActionEvent actionEvent) {
-        productoSeleccionado = 0;
-        importeTotal = precios[productoSeleccionado];
-        labelImporte.setText(String.format("Total: %.2f €", importeTotal));
-        mensajeLabel.setText("Producto seleccionado: " + lblNombre1.getText());
+        seleccionarProducto(0, lblNombre1);
     }
 
     @FXML
     public void seleccionarProducto2(ActionEvent actionEvent) {
-        productoSeleccionado = 1;
-        importeTotal = precios[productoSeleccionado];
-        labelImporte.setText(String.format("Total: %.2f €", importeTotal));
-        mensajeLabel.setText("Producto seleccionado: " + lblNombre2.getText());
+        seleccionarProducto(1, lblNombre2);
     }
 
     @FXML
     public void seleccionarProducto3(ActionEvent actionEvent) {
-        productoSeleccionado = 2;
-        importeTotal = precios[productoSeleccionado];
-        labelImporte.setText(String.format("Total: %.2f €", importeTotal));
-        mensajeLabel.setText("Producto seleccionado: " + lblNombre3.getText());
+        seleccionarProducto(2, lblNombre3);
     }
 
     @FXML
     public void seleccionarProducto4(ActionEvent actionEvent) {
-        productoSeleccionado = 3;
-        importeTotal = precios[productoSeleccionado];
-        labelImporte.setText(String.format("Total: %.2f €", importeTotal));
-        mensajeLabel.setText("Producto seleccionado: " + lblNombre4.getText());
+        seleccionarProducto(3, lblNombre4);
     }
 
     @FXML
     public void seleccionarProducto5(ActionEvent actionEvent) {
-        productoSeleccionado = 4;
-        importeTotal = precios[productoSeleccionado];
-        labelImporte.setText(String.format("Total: %.2f €", importeTotal));
-        mensajeLabel.setText("Producto seleccionado: " + lblNombre5.getText());
+        seleccionarProducto(4, lblNombre5);
     }
 
     @FXML
     public void seleccionarProducto6(ActionEvent actionEvent) {
-        productoSeleccionado = 5;
-        importeTotal = precios[productoSeleccionado];
-        labelImporte.setText(String.format("Total: %.2f €", importeTotal));
-        mensajeLabel.setText("Producto seleccionado: " + lblNombre6.getText());
+        seleccionarProducto(5, lblNombre6);
     }
 
     @FXML
     public void insertarMoneda10(ActionEvent actionEvent) {
         saldoIngresado += 0.10;
         actualizarSaldo();
+        actualizarEstadoBotones();
     }
 
     @FXML
     public void insertarMoneda20(ActionEvent actionEvent) {
         saldoIngresado += 0.20;
         actualizarSaldo();
+        actualizarEstadoBotones();
     }
 
     @FXML
     public void insertarMoneda50(ActionEvent actionEvent) {
         saldoIngresado += 0.50;
         actualizarSaldo();
+        actualizarEstadoBotones();
     }
 
     @FXML
     public void insertarMoneda1(ActionEvent actionEvent) {
         saldoIngresado += 1.00;
         actualizarSaldo();
+        actualizarEstadoBotones();
     }
 
     @FXML
     public void insertarMoneda2(ActionEvent actionEvent) {
         saldoIngresado += 2.00;
         actualizarSaldo();
+        actualizarEstadoBotones();
     }
 
     private void actualizarSaldo() {
         mensajeLabel.setText(String.format("Saldo ingresado: %.2f €", saldoIngresado));
+    }
+
+    private void actualizarEstadoBotones() {
+        btnComprar.setDisable(productoSeleccionado == -1 || saldoIngresado < importeTotal);
     }
 
     @FXML
@@ -186,6 +186,7 @@ public class HelloController {
         productoSeleccionado = -1;
         labelImporte.setText("Total: 0.00 €");
         actualizarSaldo();
+        actualizarEstadoBotones();
     }
 
     @FXML
@@ -201,5 +202,6 @@ public class HelloController {
         productoSeleccionado = -1;
         labelImporte.setText("Total: 0.00 €");
         actualizarSaldo();
+        actualizarEstadoBotones();
     }
 }

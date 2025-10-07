@@ -33,48 +33,48 @@
          <VBox prefHeight="200.0" prefWidth="100.0">
             <children>
                <ImageView fx:id="imgProducto1" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
-               <Label fx:id="lblNombre1" text="Nombre1" />
-               <Label fx:id="lblPrecio1" text="1.00 €" />
+               <Label fx:id="lblNombre1" text="Goma" />
+               <Label fx:id="lblPrecio1" text="0.50 €" />
                <Button fx:id="btnProducto1" mnemonicParsing="false" onAction="#seleccionarProducto1" text="Seleccionar" />
             </children>
          </VBox>
          <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
             <children>
                <ImageView fx:id="imgProducto2" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
-               <Label fx:id="lblNombre2" text="Nombre2" />
-               <Label fx:id="lblPrecio2" text="2.00 €" />
+               <Label fx:id="lblNombre2" text="Boli" />
+               <Label fx:id="lblPrecio2" text="1.00 €" />
                <Button fx:id="btnProducto2" mnemonicParsing="false" onAction="#seleccionarProducto2" text="Seleccionar" />
             </children>
          </VBox>
          <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
             <children>
                <ImageView fx:id="imgProducto3" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
-               <Label fx:id="lblNombre3" text="Nombre3" />
-               <Label fx:id="lblPrecio3" text="3.00 €" />
+               <Label fx:id="lblNombre3" text="Regla" />
+               <Label fx:id="lblPrecio3" text="2.00 €" />
                <Button fx:id="btnProducto3" mnemonicParsing="false" onAction="#seleccionarProducto3" text="Seleccionar" />
             </children>
          </VBox>
          <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
             <children>
                <ImageView fx:id="imgProducto4" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
-               <Label fx:id="lblNombre4" text="Nombre4" />
-               <Label fx:id="lblPrecio4" text="4.00 €" />
+               <Label fx:id="lblNombre4" text="Libreta" />
+               <Label fx:id="lblPrecio4" text="3.50 €" />
                <Button fx:id="btnProducto4" mnemonicParsing="false" onAction="#seleccionarProducto4" text="Seleccionar" />
             </children>
          </VBox>
          <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <children>
                <ImageView fx:id="imgProducto5" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
-               <Label fx:id="lblNombre5" text="Nombre5" />
-               <Label fx:id="lblPrecio5" text="5.00 €" />
+               <Label fx:id="lblNombre5" text="Corrector" />
+               <Label fx:id="lblPrecio5" text="2.30 €" />
                <Button fx:id="btnProducto5" mnemonicParsing="false" onAction="#seleccionarProducto5" text="Seleccionar" />
             </children>
          </VBox>
          <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
             <children>
                <ImageView fx:id="imgProducto6" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
-               <Label fx:id="lblNombre6" text="Nombre6" />
-               <Label fx:id="lblPrecio6" text="6.00 €" />
+               <Label fx:id="lblNombre6" text="Lapiz" />
+               <Label fx:id="lblPrecio6" text="0.70 €" />
                <Button fx:id="btnProducto6" mnemonicParsing="false" onAction="#seleccionarProducto6" text="Seleccionar" />
             </children>
          </VBox>
