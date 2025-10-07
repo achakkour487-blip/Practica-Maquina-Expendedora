@@ -74,7 +74,6 @@ public class HelloController {
     private double saldoIngresado = 0.0;
     private int productoSeleccionado = -1;
 
-
     private final double[] precios = {0.50, 1.00, 2.00, 3.50, 2.30, 0.70};
 
     @FXML
@@ -171,9 +170,36 @@ public class HelloController {
 
     @FXML
     public void comprarProducto(ActionEvent actionEvent) {
+        if (productoSeleccionado == -1) {
+            mensajeLabel.setText("Por favor, selecciona un producto.");
+            return;
+        }
+        if (saldoIngresado < importeTotal) {
+            mensajeLabel.setText(String.format("Saldo insuficiente. Falta %.2f €", importeTotal - saldoIngresado));
+            return;
+        }
+        double cambio = saldoIngresado - importeTotal;
+        mensajeLabel.setText(String.format("Compra realizada. Cambio: %.2f €", cambio));
+        // Reiniciar estado
+        saldoIngresado = 0.0;
+        importeTotal = 0.0;
+        productoSeleccionado = -1;
+        labelImporte.setText("Total: 0.00 €");
+        actualizarSaldo();
     }
 
     @FXML
     public void cancelarOperacion(ActionEvent actionEvent) {
+        if (saldoIngresado > 0) {
+            mensajeLabel.setText(String.format("Operación cancelada. Se devuelve %.2f €", saldoIngresado));
+        } else {
+            mensajeLabel.setText("Operación cancelada.");
+        }
+        // Reiniciar estado
+        saldoIngresado = 0.0;
+        importeTotal = 0.0;
+        productoSeleccionado = -1;
+        labelImporte.setText("Total: 0.00 €");
+        actualizarSaldo();
     }
 }
