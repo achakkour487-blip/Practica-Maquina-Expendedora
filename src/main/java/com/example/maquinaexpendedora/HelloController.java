@@ -70,6 +70,13 @@ public class HelloController {
     @FXML
     private Label lblPrecio6;
 
+    private double importeTotal = 0.0;
+    private double saldoIngresado = 0.0;
+    private int productoSeleccionado = -1;
+
+
+    private final double[] precios = {0.50, 1.00, 2.00, 3.50, 2.30, 0.70};
+
     @FXML
     public void initialize() {
         imgProducto1.setImage(new Image(getClass().getResourceAsStream("/imagenes/goma.png")));
