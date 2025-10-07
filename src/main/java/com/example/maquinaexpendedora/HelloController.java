@@ -137,22 +137,36 @@ public class HelloController {
 
     @FXML
     public void insertarMoneda10(ActionEvent actionEvent) {
+        saldoIngresado += 0.10;
+        actualizarSaldo();
     }
 
     @FXML
     public void insertarMoneda20(ActionEvent actionEvent) {
+        saldoIngresado += 0.20;
+        actualizarSaldo();
     }
 
     @FXML
     public void insertarMoneda50(ActionEvent actionEvent) {
+        saldoIngresado += 0.50;
+        actualizarSaldo();
     }
 
     @FXML
     public void insertarMoneda1(ActionEvent actionEvent) {
+        saldoIngresado += 1.00;
+        actualizarSaldo();
     }
 
     @FXML
     public void insertarMoneda2(ActionEvent actionEvent) {
+        saldoIngresado += 2.00;
+        actualizarSaldo();
+    }
+
+    private void actualizarSaldo() {
+        mensajeLabel.setText(String.format("Saldo ingresado: %.2f €", saldoIngresado));
     }
 
     @FXML
@@ -163,4 +177,3 @@ public class HelloController {
     public void cancelarOperacion(ActionEvent actionEvent) {
     }
 }
-
