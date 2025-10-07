@@ -1,14 +1,134 @@
 package com.example.maquinaexpendedora;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class HelloController {
+
+    @FXML private ImageView imgProducto1;
+    @FXML private ImageView imgProducto2;
+    @FXML private ImageView imgProducto3;
+    @FXML private ImageView imgProducto4;
+    @FXML private ImageView imgProducto5;
+    @FXML private ImageView imgProducto6;
     @FXML
-    private Label welcomeText;
+    private Button btnMoneda10;
+    @FXML
+    private Button btnMoneda50;
+    @FXML
+    private Label mensajeLabel;
+    @FXML
+    private Button btnMoneda1;
+    @FXML
+    private Label lblNombre2;
+    @FXML
+    private Label lblNombre1;
+    @FXML
+    private Button btnCancelar;
+    @FXML
+    private Label lblNombre6;
+    @FXML
+    private Label lblNombre5;
+    @FXML
+    private Label lblNombre4;
+    @FXML
+    private Label lblNombre3;
+    @FXML
+    private Button btnProducto1;
+    @FXML
+    private Button btnProducto3;
+    @FXML
+    private Button btnProducto2;
+    @FXML
+    private Button btnProducto5;
+    @FXML
+    private Button btnMoneda2;
+    @FXML
+    private Button btnProducto4;
+    @FXML
+    private Button btnProducto6;
+    @FXML
+    private Button btnMoneda20;
+    @FXML
+    private Label lblPrecio1;
+    @FXML
+    private Label lblPrecio3;
+    @FXML
+    private Label lblPrecio2;
+    @FXML
+    private Label labelImporte;
+    @FXML
+    private Button btnComprar;
+    @FXML
+    private Label lblPrecio5;
+    @FXML
+    private Label lblPrecio4;
+    @FXML
+    private Label lblPrecio6;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    public void initialize() {
+        imgProducto1.setImage(new Image(getClass().getResourceAsStream("/imagenes/goma.png")));
+        imgProducto2.setImage(new Image(getClass().getResourceAsStream("/imagenes/boli.png")));
+        imgProducto3.setImage(new Image(getClass().getResourceAsStream("/imagenes/regla.png")));
+        imgProducto4.setImage(new Image(getClass().getResourceAsStream("/imagenes/libreta.png")));
+        imgProducto5.setImage(new Image(getClass().getResourceAsStream("/imagenes/tipex.png")));
+        imgProducto6.setImage(new Image(getClass().getResourceAsStream("/imagenes/lapiz.png")));
+    }
+
+    @FXML
+    public void seleccionarProducto5(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void insertarMoneda50(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void seleccionarProducto4(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void seleccionarProducto3(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void seleccionarProducto2(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void insertarMoneda20(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void seleccionarProducto1(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void comprarProducto(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void insertarMoneda2(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void insertarMoneda10(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void insertarMoneda1(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void cancelarOperacion(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void seleccionarProducto6(ActionEvent actionEvent) {
     }
 }
