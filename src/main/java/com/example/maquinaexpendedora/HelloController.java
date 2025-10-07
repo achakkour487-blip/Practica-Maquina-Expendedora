@@ -88,39 +88,51 @@ public class HelloController {
     }
 
     @FXML
-    public void seleccionarProducto5(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void insertarMoneda50(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void seleccionarProducto4(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void seleccionarProducto3(ActionEvent actionEvent) {
+    public void seleccionarProducto1(ActionEvent actionEvent) {
+        productoSeleccionado = 0;
+        importeTotal = precios[productoSeleccionado];
+        labelImporte.setText(String.format("Total: %.2f €", importeTotal));
+        mensajeLabel.setText("Producto seleccionado: " + lblNombre1.getText());
     }
 
     @FXML
     public void seleccionarProducto2(ActionEvent actionEvent) {
+        productoSeleccionado = 1;
+        importeTotal = precios[productoSeleccionado];
+        labelImporte.setText(String.format("Total: %.2f €", importeTotal));
+        mensajeLabel.setText("Producto seleccionado: " + lblNombre2.getText());
     }
 
     @FXML
-    public void insertarMoneda20(ActionEvent actionEvent) {
+    public void seleccionarProducto3(ActionEvent actionEvent) {
+        productoSeleccionado = 2;
+        importeTotal = precios[productoSeleccionado];
+        labelImporte.setText(String.format("Total: %.2f €", importeTotal));
+        mensajeLabel.setText("Producto seleccionado: " + lblNombre3.getText());
     }
 
     @FXML
-    public void seleccionarProducto1(ActionEvent actionEvent) {
+    public void seleccionarProducto4(ActionEvent actionEvent) {
+        productoSeleccionado = 3;
+        importeTotal = precios[productoSeleccionado];
+        labelImporte.setText(String.format("Total: %.2f €", importeTotal));
+        mensajeLabel.setText("Producto seleccionado: " + lblNombre4.getText());
     }
 
     @FXML
-    public void comprarProducto(ActionEvent actionEvent) {
+    public void seleccionarProducto5(ActionEvent actionEvent) {
+        productoSeleccionado = 4;
+        importeTotal = precios[productoSeleccionado];
+        labelImporte.setText(String.format("Total: %.2f €", importeTotal));
+        mensajeLabel.setText("Producto seleccionado: " + lblNombre5.getText());
     }
 
     @FXML
-    public void insertarMoneda2(ActionEvent actionEvent) {
+    public void seleccionarProducto6(ActionEvent actionEvent) {
+        productoSeleccionado = 5;
+        importeTotal = precios[productoSeleccionado];
+        labelImporte.setText(String.format("Total: %.2f €", importeTotal));
+        mensajeLabel.setText("Producto seleccionado: " + lblNombre6.getText());
     }
 
     @FXML
@@ -128,14 +140,27 @@ public class HelloController {
     }
 
     @FXML
+    public void insertarMoneda20(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void insertarMoneda50(ActionEvent actionEvent) {
+    }
+
+    @FXML
     public void insertarMoneda1(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void insertarMoneda2(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void comprarProducto(ActionEvent actionEvent) {
     }
 
     @FXML
     public void cancelarOperacion(ActionEvent actionEvent) {
     }
-
-    @FXML
-    public void seleccionarProducto6(ActionEvent actionEvent) {
-    }
 }
+
