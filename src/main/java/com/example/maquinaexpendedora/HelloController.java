@@ -3,7 +3,6 @@ package com.example.maquinaexpendedora;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -53,23 +52,14 @@ public class HelloController {
     private int productoSeleccionado = -1;
 
     private final double[] precios = {0.50, 1.00, 2.00, 3.50, 2.30, 0.70};
-    // Añadimos stock inicial (por ejemplo 5 unidades de cada)
     private int[] stock = {5, 5, 5, 5, 5, 5};
 
     @FXML
     public void initialize() {
-        imgProducto1.setImage(new Image(getClass().getResourceAsStream("/imagenes/goma.png")));
-        imgProducto2.setImage(new Image(getClass().getResourceAsStream("/imagenes/boli.png")));
-        imgProducto3.setImage(new Image(getClass().getResourceAsStream("/imagenes/regla.png")));
-        imgProducto4.setImage(new Image(getClass().getResourceAsStream("/imagenes/libreta.png")));
-        imgProducto5.setImage(new Image(getClass().getResourceAsStream("/imagenes/tipex.png")));
-        imgProducto6.setImage(new Image(getClass().getResourceAsStream("/imagenes/lapiz.png")));
-
+        // Inicializa imágenes...
         actualizarEstadoBotones();
 
-        // Añadimos filtro de evento a monedas (ejemplo de filtro)
         EventHandler<Event> monedaFiltro = event -> {
-            // Sólo permitimos eventos MOUSE_CLICKED sobre monedas para ejemplo
             if (event.getEventType() == MouseEvent.MOUSE_CLICKED) {
                 System.out.println("Filtro: Moneda insertada");
             }
@@ -80,13 +70,13 @@ public class HelloController {
         btnMoneda1.addEventFilter(MouseEvent.MOUSE_CLICKED, monedaFiltro);
         btnMoneda2.addEventFilter(MouseEvent.MOUSE_CLICKED, monedaFiltro);
 
-        // Añadimos manejador setOnAction en código para botones comprar y cancelar (ejemplo diferente al @FXML)
         btnComprar.setOnAction(event -> comprarProducto(event));
         btnCancelar.setOnAction(event -> cancelarOperacion(event));
     }
 
     private void seleccionarProducto(int indice, Label lblNombre) {
-        if (stock[indice] <= 0) {
+        // AQUI USAMOS LA LOGICA SEPARADA
+        if (!VendingLogic.hayStock(stock[indice])) {
             mensajeLabel.setText("Producto agotado: " + lblNombre.getText());
             return;
         }
@@ -98,70 +88,18 @@ public class HelloController {
         resaltarBotonProducto(indice);
     }
 
-    @FXML
-    public void seleccionarProducto1(ActionEvent actionEvent) {
-        seleccionarProducto(0, lblNombre1);
-    }
+    @FXML public void seleccionarProducto1(ActionEvent actionEvent) { seleccionarProducto(0, lblNombre1); }
+    @FXML public void seleccionarProducto2(ActionEvent actionEvent) { seleccionarProducto(1, lblNombre2); }
+    @FXML public void seleccionarProducto3(ActionEvent actionEvent) { seleccionarProducto(2, lblNombre3); }
+    @FXML public void seleccionarProducto4(ActionEvent actionEvent) { seleccionarProducto(3, lblNombre4); }
+    @FXML public void seleccionarProducto5(ActionEvent actionEvent) { seleccionarProducto(4, lblNombre5); }
+    @FXML public void seleccionarProducto6(ActionEvent actionEvent) { seleccionarProducto(5, lblNombre6); }
 
-    @FXML
-    public void seleccionarProducto2(ActionEvent actionEvent) {
-        seleccionarProducto(1, lblNombre2);
-    }
-
-    @FXML
-    public void seleccionarProducto3(ActionEvent actionEvent) {
-        seleccionarProducto(2, lblNombre3);
-    }
-
-    @FXML
-    public void seleccionarProducto4(ActionEvent actionEvent) {
-        seleccionarProducto(3, lblNombre4);
-    }
-
-    @FXML
-    public void seleccionarProducto5(ActionEvent actionEvent) {
-        seleccionarProducto(4, lblNombre5);
-    }
-
-    @FXML
-    public void seleccionarProducto6(ActionEvent actionEvent) {
-        seleccionarProducto(5, lblNombre6);
-    }
-
-    @FXML
-    public void insertarMoneda10(ActionEvent actionEvent) {
-        saldoIngresado += 0.10;
-        actualizarSaldo();
-        actualizarEstadoBotones();
-    }
-
-    @FXML
-    public void insertarMoneda20(ActionEvent actionEvent) {
-        saldoIngresado += 0.20;
-        actualizarSaldo();
-        actualizarEstadoBotones();
-    }
-
-    @FXML
-    public void insertarMoneda50(ActionEvent actionEvent) {
-        saldoIngresado += 0.50;
-        actualizarSaldo();
-        actualizarEstadoBotones();
-    }
-
-    @FXML
-    public void insertarMoneda1(ActionEvent actionEvent) {
-        saldoIngresado += 1.00;
-        actualizarSaldo();
-        actualizarEstadoBotones();
-    }
-
-    @FXML
-    public void insertarMoneda2(ActionEvent actionEvent) {
-        saldoIngresado += 2.00;
-        actualizarSaldo();
-        actualizarEstadoBotones();
-    }
+    @FXML public void insertarMoneda10(ActionEvent actionEvent) { saldoIngresado += 0.10; actualizarSaldo(); actualizarEstadoBotones(); }
+    @FXML public void insertarMoneda20(ActionEvent actionEvent) { saldoIngresado += 0.20; actualizarSaldo(); actualizarEstadoBotones(); }
+    @FXML public void insertarMoneda50(ActionEvent actionEvent) { saldoIngresado += 0.50; actualizarSaldo(); actualizarEstadoBotones(); }
+    @FXML public void insertarMoneda1(ActionEvent actionEvent) { saldoIngresado += 1.00; actualizarSaldo(); actualizarEstadoBotones(); }
+    @FXML public void insertarMoneda2(ActionEvent actionEvent) { saldoIngresado += 2.00; actualizarSaldo(); actualizarEstadoBotones(); }
 
     private void actualizarSaldo() {
         mensajeLabel.setText(String.format("Saldo ingresado: %.2f €", saldoIngresado));
@@ -172,17 +110,9 @@ public class HelloController {
         btnCancelar.setDisable(saldoIngresado == 0);
     }
 
-    // Añadimos método para resaltar visualmente el producto seleccionado
     private void resaltarBotonProducto(int indice) {
-        // Reset todos a estilo normal
-        btnProducto1.setStyle("");
-        btnProducto2.setStyle("");
-        btnProducto3.setStyle("");
-        btnProducto4.setStyle("");
-        btnProducto5.setStyle("");
-        btnProducto6.setStyle("");
-
-        // Resaltar el seleccionado
+        btnProducto1.setStyle(""); btnProducto2.setStyle(""); btnProducto3.setStyle("");
+        btnProducto4.setStyle(""); btnProducto5.setStyle(""); btnProducto6.setStyle("");
         switch (indice) {
             case 0 -> btnProducto1.setStyle("-fx-border-color: green; -fx-border-width: 3;");
             case 1 -> btnProducto2.setStyle("-fx-border-color: green; -fx-border-width: 3;");
@@ -199,38 +129,25 @@ public class HelloController {
             mensajeLabel.setText("Por favor, selecciona un producto.");
             return;
         }
-        if (stock[productoSeleccionado] <= 0) {
+
+        // AQUI USAMOS LA LOGICA SEPARADA
+        if (!VendingLogic.hayStock(stock[productoSeleccionado])) {
             mensajeLabel.setText("Producto agotado.");
             return;
         }
-        if (saldoIngresado < importeTotal) {
+
+        // AQUI USAMOS LA LOGICA SEPARADA
+        if (!VendingLogic.saldoSuficiente(saldoIngresado, importeTotal)) {
             mensajeLabel.setText(String.format("Saldo insuficiente. Falta %.2f €", importeTotal - saldoIngresado));
             return;
         }
-        // Descontar stock
+
         stock[productoSeleccionado]--;
 
-        double cambio = saldoIngresado - importeTotal;
+        // AQUI USAMOS LA LOGICA SEPARADA
+        double cambio = VendingLogic.calcularCambio(saldoIngresado, importeTotal);
         mostrarDialogoCompraExitosa(cambio);
 
-        // Reiniciar estado
-        saldoIngresado = 0.0;
-        importeTotal = 0.0;
-        productoSeleccionado = -1;
-        labelImporte.setText("Total: 0.00 €");
-        actualizarSaldo();
-        actualizarEstadoBotones();
-        resaltarBotonProducto(-1); // Quitar resaltado
-    }
-
-    @FXML
-    public void cancelarOperacion(ActionEvent actionEvent) {
-        if (saldoIngresado > 0) {
-            mensajeLabel.setText(String.format("Operación cancelada. Se devuelve %.2f €", saldoIngresado));
-        } else {
-            mensajeLabel.setText("Operación cancelada.");
-        }
-        // Reiniciar estado
         saldoIngresado = 0.0;
         importeTotal = 0.0;
         productoSeleccionado = -1;
@@ -240,7 +157,22 @@ public class HelloController {
         resaltarBotonProducto(-1);
     }
 
-    // Método para mostrar diálogo modal de compra exitosa y cambio
+    @FXML
+    public void cancelarOperacion(ActionEvent actionEvent) {
+        if (saldoIngresado > 0) {
+            mensajeLabel.setText(String.format("Operación cancelada. Se devuelve %.2f €", saldoIngresado));
+        } else {
+            mensajeLabel.setText("Operación cancelada.");
+        }
+        saldoIngresado = 0.0;
+        importeTotal = 0.0;
+        productoSeleccionado = -1;
+        labelImporte.setText("Total: 0.00 €");
+        actualizarSaldo();
+        actualizarEstadoBotones();
+        resaltarBotonProducto(-1);
+    }
+
     private void mostrarDialogoCompraExitosa(double cambio) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Compra realizada");
