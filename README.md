@@ -16,4 +16,4 @@ Sin embargo, es más costoso que el unitario por:
 
 ### Detalles finales de entrega
 * **Cobertura**: Este proyecto ha superado el 50% de cobertura de código requerido mediante las pruebas unitarias de la lógica de negocio y las pruebas E2E de interfaz.
-* **Automatización**: Se ha implementado un archivo de workflow en GitHub Actions para ejecutar compilación y tests en cada subida al repositorio de forma autónoma.
+* **Automatización**: Se ha implementado un archivo de workflow en GitHub Actions para ejecutar compilación y tests en cada subida al repositorio de forma autónoma. 
