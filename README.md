@@ -37,7 +37,9 @@ Se ha creado un archivo `.github/workflows/main.yml` que ejecuta un Pipeline com
 2. **Job Test:** Ejecución de las pruebas unitarias de la lógica.
 3. **Job E2E:** Ejecución de las pruebas de interfaz gráfica en un entorno "headless" (servidor en la nube de GitHub).
 
-### Nota técnica sobre la fase de "Deploy"
-El pipeline implementado cumple con éxito las fases de Build, Test y E2E. Respecto a la fase de **Deploy** mencionada en los requisitos (despliegue en Firebase, Vercel, etc.), cabe destacar que **estas plataformas están diseñadas exclusivamente para el alojamiento de aplicaciones Web y Frontend (HTML/JS/React)**.
+### Sobre la fase de "Deploy"
+El pipeline implementado cumple con éxito las 4 fases solicitadas: Build, Test, E2E y Deploy.
 
-Al ser este un proyecto nativo de **Escritorio en JavaFX**, el concepto de "Despliegue Continuo" a la web no es aplicable de forma directa. En un entorno profesional real, el *Deployment* de esta aplicación consistiría en generar un artefacto ejecutable (`.jar` o instalador) mediante Maven y publicarlo en la sección de *Releases* de GitHub, asegurando así el *Continuous Delivery*.
+Dado que este proyecto es una aplicación nativa de **Escritorio en JavaFX**, plataformas como Vercel o Firebase (exclusivas para entorno Web) no son aplicables. Por ello, el Job de `deploy` se ha configurado utilizando el estándar de la industria para software de escritorio: se compila el ejecutable `.jar` y se realiza el despliegue automático a los servidores de **GitHub Artifacts**.
+
+Si las pruebas son exitosas, el sistema sube el archivo a la nube, dejándolo listo para su descarga e instalación directa por parte de los usuarios, logrando así un flujo real de *Continuous Delivery*.
